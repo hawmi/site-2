@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="description" content="Hawmi's personal portfolio" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Hawmi</title>
+    </head>
+    <body>
+        <main>
+            <div id="home-section" class="section">
+                <img src="assets/hawmi-avatar-nobg.gif" alt="logo" class="entry-fade-delay" />
+                <h1 id="main-title" class="anim-typewriter">hawmi</h1>
+                <p id="main-aka" class="entry-fade-delay">aka. Hami, Niavaran, Shemiranat</p>
+                <p id="main-description" class="entry-fade-delay">
+                    Half Emirati half Persian teenager who lives in Lavasanat/Shemiranat and Abu Dhabi. Loves and is obsessed with persian names. Dedicated
+                    Valorant fade player and decent Minecraft PotPvP player. Currently Platinum 1 in Valorant.
+                </p>
+                <div id="main-buttons" class="entry-fade-delay">
+                    <a class="button" href="/hardware.html">
+                        <img src="assets/icons/laptop.png" alt="pc" />
+                        Hardware
+                    </a>
+                    <a id="discord-button" class="button" href="#" onclick="showDiscordPopup()">
+                        <img src="assets/icons/discord.png" alt="dc" />
+                        Discord
+                    </a>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
+
+<script>
+    let discordButton = document.getElementById("discord-button");
+
+    function showDiscordPopup() {
+        navigator.clipboard.writeText("Hawmi");
+        const tooltip = document.createElement("div");
+        tooltip.innerText = "Hawmi#9999 copied to clipboard";
+        tooltip.style.position = "absolute";
+
+        const targetBox = discordButton.getBoundingClientRect();
+
+        tooltip.style.transition = "0.3s";
+        tooltip.style.opacity = "0";
+        tooltip.style.padding = "10px";
+        tooltip.style.color = "white";
+        tooltip.style.background = "var(--background-primary)";
+        tooltip.style.border = "1px solid var(--accent-primary)";
+        document.body.appendChild(tooltip);
+
+        tooltip.style.left = targetBox.left + targetBox.width / 2 - tooltip.getBoundingClientRect().width / 2 + "px";
+        tooltip.style.top = targetBox.top + targetBox.height + 10 + "px";
+        setTimeout(() => {
+            tooltip.style.opacity = "1";
+        }, 100);
+        setTimeout(() => {
+            tooltip.style.opacity = "0";
+            setTimeout(() => {
+                document.body.removeChild(tooltip);
+            }, 300);
+        }, 5000);
+    }
+</script>
